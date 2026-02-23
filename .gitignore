@@ -1,3 +1,8 @@
+# Node.js dependencies
+node_modules/
+.next/
+out/
+
 # Virtual environments
 amd/
 .amd/
@@ -12,6 +17,8 @@ __pycache__/
 # Logs
 *.log
 
-# OS files
+# OS files / editor
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
