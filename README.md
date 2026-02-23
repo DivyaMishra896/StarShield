@@ -19,7 +19,7 @@ Team:
 3 members
 
 Time:
-10 days for prototype
+10 days for prototype.
 
 Tech Stack Locked:
 Frontend: Next.js + Tailwind + D3.js
