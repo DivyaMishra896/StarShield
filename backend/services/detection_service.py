@@ -9,8 +9,8 @@ from detection_engine.event_safety import EventBurstSafetyChecker
 
 def run_detection():
     # Load data
-    users_df = pd.read_csv("../dataset_generator/users.csv")
-    posts_df = pd.read_csv("../dataset_generator/posts.csv")
+    users_df = pd.read_csv("dataset_generator/users.csv")
+    posts_df = pd.read_csv("dataset_generator/posts.csv")
     posts_df["timestamp"] = pd.to_datetime(posts_df["timestamp"])
 
     # Semantic
