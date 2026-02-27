@@ -17,6 +17,6 @@ app.add_middleware(
 def health_check():
     return {"status": "ok"}
 
-@app.post("/run-detection", response_model=DetectionResponse)
+@app.post("/run-detection")
 def run_detection_api():
     return run_detection()
