@@ -1,14 +1,11 @@
 export async function runDetection() {
-  const res = await fetch("http://localhost:8000/run-detection", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-});
+  const res = await fetch("/api/run-detection", {
+    method: "POST",
+  });
 
   if (!res.ok) {
-    const text = await res.text();
-    throw new Error("Backend error: " + text);
+    throw new Error(await res.text());
   }
 
-  const data = await res.json();
-  return data;
+  return res.json();
 }

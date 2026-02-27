@@ -17,12 +17,18 @@ export default function RiskTable({ data }: { data?: RiskUser[] }) {
         </tr>
       </thead>
       <tbody>
-        {data.map((u) => (
-          <tr key={u.user_id}>
-            <td className="border p-2">{u.user_id}</td>
-            <td className="border p-2">{u.risk_score}</td>
-          </tr>
-        ))}
+        {data.map((u) => {
+          const isHighRisk = u.risk_score >= 0.45;
+          return (
+            <tr
+              key={u.user_id}
+              className={isHighRisk ? "bg-red-100 font-semibold" : ""}
+            >
+              <td className="border p-2">{u.user_id}</td>
+              <td className="border p-2">{u.risk_score}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
