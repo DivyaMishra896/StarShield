@@ -9,14 +9,17 @@ export default function UserDashboard() {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [lastScan, setLastScan] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleRun() {
     setLoading(true);
+    setError(null);
     try {
       const res = await runDetection();
       setData(res.top_suspicious_users);
       setLastScan(new Date().toLocaleTimeString());
-    } catch (err) {
+    } catch (err: any) {
+      setError(err.message || "Detection engine failed.");
       console.error(err);
     } finally {
       setLoading(false);
@@ -48,6 +51,17 @@ export default function UserDashboard() {
           </div>
           <Controls onRun={handleRun} isLoading={loading} />
         </div>
+
+        {/* Error Display */}
+        {error && (
+          <div className="w-full mb-6 p-4 text-red-400 bg-red-950/30 border border-red-500/30 rounded-xl flex items-start gap-3">
+            <span className="text-lg">⚠️</span>
+            <div>
+              <p className="font-bold text-sm">Scan Failed</p>
+              <p className="text-xs opacity-80 mt-1">{error}</p>
+            </div>
+          </div>
+        )}
 
         {/* Simplified Table */}
         {data.length > 0 && (

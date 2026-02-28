@@ -1,6 +1,17 @@
+import sys
 import pandas as pd
-import networkx as nx  # Added import
+import networkx as nx
 from pathlib import Path
+
+# ── Path Setup (critical for Render deployment) ──
+# This file lives at: <repo>/backend/services/detection_service.py
+# So .parent.parent.parent = <repo> root where detection_engine/ lives
+_THIS_FILE = Path(__file__).resolve()
+_REPO_ROOT = _THIS_FILE.parent.parent.parent
+
+# Add repo root to sys.path so "detection_engine" package is importable
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from detection_engine.semantic_engine import SemanticEngine
 from detection_engine.behavioral_engine import BehavioralEngine
@@ -8,11 +19,32 @@ from detection_engine.graph_engine import GraphEngine
 from detection_engine.fusion import fuse_risk
 from detection_engine.event_safety import EventBurstSafetyChecker
 
+
+def _find_csv_files():
+    """Locate CSV files with multiple fallback paths for different deploy environments."""
+    candidates = [
+        _REPO_ROOT,                        # normal: <repo>/dataset_generator/
+        _REPO_ROOT.parent,                 # if Render root = backend/
+        Path.cwd(),                        # current working directory
+        Path.cwd().parent,                 # one up from cwd
+    ]
+    for root in candidates:
+        users = root / "dataset_generator" / "users.csv"
+        posts = root / "dataset_generator" / "posts.csv"
+        if users.exists() and posts.exists():
+            return users, posts
+    
+    # Debug: show where we looked
+    searched = [str(c / "dataset_generator") for c in candidates]
+    raise FileNotFoundError(
+        f"CSV files not found. Searched: {searched}. "
+        f"CWD={Path.cwd()}, __file__={_THIS_FILE}"
+    )
+
+
 def run_detection():
-    # 1. Path Handling
-    ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-    users_csv_path = ROOT_DIR / "dataset_generator" / "users.csv"
-    posts_csv_path = ROOT_DIR / "dataset_generator" / "posts.csv"
+    # 1. Locate data files
+    users_csv_path, posts_csv_path = _find_csv_files()
 
     # Load data
     users_df = pd.read_csv(users_csv_path)

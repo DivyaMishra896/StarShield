@@ -14,7 +14,7 @@ import PropagationTimeline from "../components/PropagationTimeline";
 import RiskHeatmap from "../components/RiskHeatmap";
 import GeoCoordination from "../components/GeoCoordination";
 
-export default function UserDashboard() {
+export default function EnterpriseDashboard() {
   // Application State
   const [data, setData] = useState<any[]>([]);
   const [graphData, setGraphData] = useState<any>(null);

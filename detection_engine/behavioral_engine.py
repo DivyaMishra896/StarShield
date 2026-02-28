@@ -24,7 +24,7 @@ class BehavioralEngine:
         user_ids = list(feature_dict.keys())
         X = np.array(list(feature_dict.values()))
 
-        model = IsolationForest(contamination=0.08)
+        model = IsolationForest(contamination=0.08, random_state=42)
         model.fit(X)
 
         scores = model.decision_function(X)

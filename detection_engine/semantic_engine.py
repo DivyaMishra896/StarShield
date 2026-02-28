@@ -11,7 +11,7 @@ class SemanticEngine:
 
     def build_embeddings(self, posts_df):
         texts = posts_df["content"].tolist()
-        embeddings = self.model.encode(texts, show_progress_bar=True)
+        embeddings = self.model.encode(texts, show_progress_bar=False)
         embeddings = normalize(embeddings)
         return embeddings
 

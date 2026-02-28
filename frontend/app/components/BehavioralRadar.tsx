@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react';
 import {
   Radar, RadarChart, PolarGrid, 
-  PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer
+  PolarAngleAxis, ResponsiveContainer
 } from 'recharts';
 
 export default function BehavioralRadar({ userData }: { userData: any }) {
