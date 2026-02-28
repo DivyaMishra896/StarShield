@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .schemas import DetectionResponse
-from .services.detection_service import run_detection
+from schemas import DetectionResponse
+from services.detection_service import run_detection
 
 app = FastAPI(title="StarShield AI Backend")
 
