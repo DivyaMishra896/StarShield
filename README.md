@@ -39,7 +39,7 @@
 <summary>🏠 <strong>Landing Page — System Selection</strong></summary>
 <br/>
 
-![Landing Page](screenshots/landing-page.png)
+![Landing Page](screenshot/landing-page.png)
 
 </details>
 
@@ -47,7 +47,7 @@
 <summary>🏢 <strong>Enterprise Console — Full Tactical Dashboard</strong></summary>
 <br/>
 
-![Enterprise Dashboard](screenshots/enterprise-dashboard.png)
+![Enterprise Dashboard](screenshot/enterprise-dashboard.png)
 
 </details>
 
@@ -55,7 +55,7 @@
 <summary>🕸️ <strong>Enterprise — Live Swarm Topology Graph</strong></summary>
 <br/>
 
-[Swarm Graph](screenshots/swarm-topology.png)
+[Swarm Graph](screenshot/swarm-topology.png)
 
 </details>
 
@@ -63,7 +63,7 @@
 <summary>📊 <strong>Enterprise — Attack Wave Heatmap & Influence Velocity</strong></summary>
 <br/>
 
-![Heatmap and Velocity](screenshots/heatmap-velocity.png)
+![Heatmap and Velocity](screenshot/heatmap-velocity.png)
 
 </details>
 
@@ -71,7 +71,7 @@
 <summary>🎯 <strong>Enterprise — Suspect Fingerprint Radar & Regional Clustering</strong></summary>
 <br/>
 
-![Radar and Geo](screenshots/radar-geo.png)
+![Radar and Geo](screenshot/radar-geo.png)
 
 </details>
 
@@ -79,7 +79,7 @@
 <summary>📋 <strong>Enterprise — Priority Action Queue (Explainable AI)</strong></summary>
 <br/>
 
-![Risk Table](screenshots/enterprise-risk-table.png)
+![Risk Table](screenshot/enterprise-risk-table.png)
 
 </details>
 
@@ -87,7 +87,7 @@
 <summary>🧍 <strong>User Dashboard — Moderator Alert Interface</strong></summary>
 <br/>
 
-![User Dashboard](screenshots/user-dashboard.png)
+![User Dashboard](screenshot/user-dashboard.png)
 
 </details>
 
