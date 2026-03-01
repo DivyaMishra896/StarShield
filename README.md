@@ -55,7 +55,7 @@
 <summary>🕸️ <strong>Enterprise — Live Swarm Topology Graph</strong></summary>
 <br/>
 
-[Swarm Graph](screenshot/swarm-topology.png)
+![Swarm Graph](screenshot/swarm-topology.png)
 
 </details>
 
